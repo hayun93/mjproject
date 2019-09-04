@@ -31,7 +31,7 @@ public class MemberDAO {
 		this.con = con;
 	}
 
-	//È¸¿ø°¡ÀÔ
+	//È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	public int InsertMember(Member article) {
 		PreparedStatement pstmt=null;
 		String sql="insert into member Values (?,?,?,?,?,?,?,now())";
@@ -49,7 +49,7 @@ public class MemberDAO {
 			
 			insertCount = pstmt.executeUpdate();
 		}catch(Exception ex) {
-			System.out.println("JoinMember ¿À·ù : " + ex);
+			System.out.println("JoinMember ï¿½ï¿½ï¿½ï¿½ : " + ex);
 		}finally {
 			close(pstmt);
 		}
@@ -57,7 +57,7 @@ public class MemberDAO {
 		return insertCount;
 	}
 	
-	//·Î±×ÀÎ
+	//ï¿½Î±ï¿½ï¿½ï¿½
 	public Member SelectMember(String id) {
 		// TODO Auto-generated method stub
 		PreparedStatement pstmt=null;
@@ -81,7 +81,7 @@ public class MemberDAO {
 				loginMember.setPhone(rs.getString("phone"));
 			}
 		}catch(SQLException e) {
-			System.out.println("SelectMember ¿À·ù : " + e);
+			System.out.println("SelectMember ï¿½ï¿½ï¿½ï¿½ : " + e);
 		}finally {
 			close(rs);
 			close(pstmt);
@@ -108,7 +108,7 @@ public class MemberDAO {
 			pstmt.setString(7, member.getId());
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
-			System.out.println("updateMember¿À·ù : "+e);
+			System.out.println("updateMemberï¿½ï¿½ï¿½ï¿½ : "+e);
 		}finally {
 			close(pstmt);
 		}
@@ -127,7 +127,7 @@ public class MemberDAO {
 			pstmt.setString(2, member.getId());
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
-			System.out.println("PassChange¿À·ù : "+e);
+			System.out.println("PassChangeï¿½ï¿½ï¿½ï¿½ : "+e);
 		}finally {
 			close(pstmt);
 		}
@@ -148,7 +148,7 @@ public class MemberDAO {
 				listCount = rs.getInt(1);
 			}
 		}catch(Exception e) {
-			System.out.println("getListCount ¿À·ù:"+e);
+			System.out.println("getListCount ï¿½ï¿½ï¿½ï¿½:"+e);
 		}finally {
 			close(rs);
 			close(pstmt);
@@ -178,7 +178,7 @@ public class MemberDAO {
 				memlist.add(member);
 			}
 		}catch(Exception e) {
-			System.out.println("getMemList¿À·ù : "+e);
+			System.out.println("getMemListï¿½ï¿½ï¿½ï¿½ : "+e);
 		}finally {
 			close(rs);
 			close(pstmt);
@@ -191,7 +191,7 @@ public class MemberDAO {
 		PreparedStatement pstmt = null;
 		int result=0;
 		String chaddr_sql = "update member set zip_code=?,address=? where id=?";
-		System.out.println("DAOÁıÄÚµå"+member.getZip_code());
+		System.out.println("DAOï¿½ï¿½ï¿½Úµï¿½"+member.getZip_code());
 		try {
 			pstmt = con.prepareStatement(chaddr_sql);
 			pstmt.setInt(1, member.getZip_code());
@@ -199,11 +199,67 @@ public class MemberDAO {
 			pstmt.setString(3, member.getId());
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
-			System.out.println("AddrChangeMember¿À·ù : "+e);
+			System.out.println("AddrChangeMemberï¿½ï¿½ï¿½ï¿½ : "+e);
 		}finally {
 			close(pstmt);
 		}
 		return result;
+	}
+//ì•„ì´ë”” ì°¾ê¸°
+	public String selectMemberId(String email) {
+		// TODO Auto-generated method stub
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql="select * from member where email=?";
+		String id=null;
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				id=rs.getString("id");
+			}else {
+				id="no";
+			}
+		}catch(Exception e) {
+			System.out.println("selectMemberIdì—ëŸ¬ : "+e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return id;
+	}
+//ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°
+	public String selectMemberPass(String userId, String email) {
+		// TODO Auto-generated method stub
+		
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="select * from member where id=? and email=?";
+		String pass=null;
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1,userId);
+			pstmt.setString(2,email);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pass=rs.getString("password");
+			}else {
+				pass="no";
+			}
+		}catch(Exception e) {
+			System.out.println("selectMemberPassì—ëŸ¬ : " +e);
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		
+		return pass;
 	}
 
 }

@@ -4,14 +4,15 @@ import java.util.Date;
 
 public class Pro_order {
 	
-	int order_num;
-	String user_id;
-	Date order_date;
-	int pay;
-	int zip_code;
-	String address;
-	String phone;
-	String order_state;
+	private int order_num;
+	private String user_id;
+	private Date order_date;
+	private int pay;
+	private String receive_name;
+	private int zip_code;
+	private String address;
+	private String phone;
+	private String order_state;
 	
 	public int getOrder_num() {
 		return order_num;
@@ -36,6 +37,12 @@ public class Pro_order {
 	}
 	public void setPay(int pay) {
 		this.pay = pay;
+	}
+	public String getReceive_name() {
+		return receive_name;
+	}
+	public void setReceive_name(String receive_name) {
+		this.receive_name = receive_name;
 	}
 	public int getZip_code() {
 		return zip_code;

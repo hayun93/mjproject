@@ -36,10 +36,10 @@ public class MemberJoinProAction implements Action{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('ÀÔ·ÂµÇÁö ¾ÊÀº Á¤º¸°¡ ÀÖ½À´Ï´Ù. ´Ù½Ã ½ÃµµÇØ ÁÖ½Ê½Ã¿À.')");
+			out.println("alert('ï¿½Ô·Âµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö½ï¿½ï¿½Ï´ï¿½. ï¿½Ù½ï¿½ ï¿½Ãµï¿½ï¿½ï¿½ ï¿½Ö½Ê½Ã¿ï¿½.')");
 			out.println("history.back()");
 			out.println("</script>");
-			
+		
 		}else{
 			forward = new ActionForward();
 			forward.setPath("joinProcess.jsp");

@@ -88,7 +88,8 @@ body {
 <body>
 	<div class="gnb">
 		<ul>
-			<li><a href="memberList.mem">회원관리</a></li>
+			<li><a href="/juastore/memberList.mem">회원관리</a></li>
+			<li><a href="/juastore/productList.pro">상품관리</a></li>
 		</ul>
 	</div>
 

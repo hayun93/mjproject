@@ -1,20 +1,7 @@
-<<<<<<< Updated upstream:mjproject/WebContent/test.jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-=======
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="/top.jsp"/>
+<jsp:include page="/top.jsp" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,18 +22,18 @@
 	<c:if test="${! empty userId }">
 		<c:choose>
 			<c:when test="${userId eq 'no' }">
-				<h1>없는 사용자입니다.</h1>
+				<h1>없는 사용자 입니다.</h1>
 			</c:when>
 			<c:otherwise>
 				<h1>찾으시는 아이디는 ${userId } 입니다.</h1>
 			</c:otherwise>
 		</c:choose>
 	</c:if>
-	<a href="/juastore/member/findPass.jsp">비밀번호 찾기</a><br>
+	<a href="/juastore/member/findPass.jsp">비밀번호 찾기</a>
+	<br>
 	<a href="/juastore/loginForm.mem">로그인</a>
-	
-<jsp:include page="/side.jsp"/>
-<jsp:include page="/bottom.jsp"/>
+
+	<jsp:include page="/side.jsp" />
+	<jsp:include page="/bottom.jsp" />
 </body>
->>>>>>> Stashed changes:juastore/WebContent/member/findId.jsp
 </html>
