@@ -28,7 +28,7 @@ public class LoginAction implements Action{
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('ï¿½Î±ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.')");
+			out.println("alert('·Î±×ÀÎ¿¡ ½ÇÆÐÇÏ¿´½À´Ï´Ù.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}else {
@@ -39,13 +39,14 @@ public class LoginAction implements Action{
 				session.getAttribute("password");
 				PrintWriter out=response.getWriter();
 				out.println("<script>");
-				out.println("alert('ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.')");
+				out.println("alert('¾ÆÀÌµð°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.')");
 				out.println("history.back()");
 				out.println("</script>");
 			}else {
 				if(password.equals(member.getPassword())) {
 					HttpSession session = request.getSession();
 					session.setAttribute("id", id);
+					session.setAttribute("password", password);
 					forward=new ActionForward();
 					forward.setPath("./main.jsp");
 					forward.setRedirect(false);
@@ -54,7 +55,7 @@ public class LoginAction implements Action{
 					response.setContentType("text/html;charset=UTF-8");
 					PrintWriter out=response.getWriter();
 					out.println("<script>");
-					out.println("alert('ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ Æ²ï¿½ï¿½ï¿½Ï´ï¿½.')");
+					out.println("alert('ºñ¹Ð¹øÈ£°¡ Æ²¸³´Ï´Ù.')");
 					out.println("history.back()");
 					out.println("</script>");
 				}
