@@ -14,18 +14,18 @@
 	margin: auto;
 	width: 20%;
 }
-.jointable {
+table{
 	width: 75%;
 	border-collapse: collapse;
 	font-size: 1.3em;
 	margin: auto;
 }
-#content {
+td {
 	border: 1px solid #ddd;
 	padding: 5px;
 }
 
-#title {
+th, thead {
 	border: 1px solid #ddd;
 	background: #eee;
 	color: #A16C29;
@@ -116,32 +116,32 @@ textarea{
 <div class="total">
 	<h1>회원가입</h1>
 	<form name="joinform" action="MemberJoinPro.mem" method="post">
-		<table class="jointable">
+		<table>
 			<tr>
-				<th id="title">아이디</th>
-				<td id="content"><input type="text" name="id" id="id" required>
+				<th>아이디</th>
+				<td><input type="text" name="id" id="id" required>
 				<input type="button" value="중복확인" name="idcheck" id="idcheck"
 							onclick="window.open('idcheck.jsp?openInit=true','','width=300,height=200')" /></td>
 			</tr>
 			<tr>
-				<th id="title">비밀번호</th>
-				<td id="content"><input type="password" name="password" id="password" required="required"></td>
+				<th>비밀번호</th>
+				<td><input type="password" name="password" id="password" required="required"></td>
 			 </tr>
 			 <tr>
-			 	<th id="title">비밀번호 확인</th>
-			 	<td id="content"><input type="password" name="passChk"
+			 	<th>비밀번호 확인</th>
+			 	<td><input type="password" name="passChk"
 							id="passChk" required /></td>
 			 <tr>
-			 	<th id="title">이름</th>
-			 	<td id="content"><input type="text" name="name" id="name" required="required"></td>
+			 	<th>이름</th>
+			 	<td><input type="text" name="name" id="name" required="required"></td>
 			 </tr>
 			 <tr>
-			 	<th id="title">이메일</th>
-			 	<td id="content"><input type="text" id="email" name="email" required="required"></td>
+			 	<th>이메일</th>
+			 	<td><input type="text" id="email" name="email" required="required"></td>
 			 </tr>
 			 <tr>
-			 	<th id="title">주소</th>
-				<td id="content"><input type="text" name="zip_code" id="zip_code" placeholder="우편번호" size="5" readonly>
+			 	<th>주소</th>
+				<td><input type="text" name="zip_code" id="zip_code" placeholder="우편번호" size="5" readonly>
 					<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 				<input type="text" name="addr1" id="addr1" placeholder="주소" size="40" readonly><br>
 				<input type="text" name="addr2" id="addr2" placeholder="상세주소" size="25">
@@ -149,7 +149,7 @@ textarea{
 			 </tr>
 		
 			<tr>
-				<th id="title">전화번호</th>
+				<th>전화번호</th>
 				<td>
 				<select id="phone0" name="phone0">
 					<option>010</option>
@@ -157,12 +157,12 @@ textarea{
 					<input type="text" name="phone1" size="4"> - <input type="text" name="phone2" size="4"></td>
 			</tr>
 			<tr>
-			<th colspan="2" id="title">
+			<th colspan="2">
 			개인정보 처리 방침
 			</th>
 			</tr>
 			<tr>
-			<td colspan="2" id="content">
+			<td colspan="2">
 			<p>
 				<textarea cols="100" rows="5" id="personal">
 1. 개인정보의 처리 목적 /주아스토어(‘http://localhost:8088/juastore’이하 ‘juastore’) 은(는) 다음의 목적을 위하여 개인정보를 처리하고 있으며, 다음의 목적 이외의 용도로는 이용하지 않습니다.
@@ -190,12 +190,12 @@ textarea{
 			</td>
 			</tr>
 			<tr>
-			<th colspan="2" id="title">
+			<th colspan="2">
 			전자상거래 표준 약관
 			</th>
 			</tr>
 			<tr>
-			<td colspan="2" id="content">
+			<td colspan="2">
 			<p>
 				<textarea cols="100" rows="5" id="market">
 제1조(목적) 이 약관은 주아스토어 회사(전자상거래 사업자)가 운영하는 주아스토어 사이버 몰(이하 “몰”이라 한다)에서 제공하는 인터넷 관련 서비스(이하 “서비스”라 한다)를 이용함에 있어 사이버 몰과 이용자의 권리․의무 및 책임사항을 규정함을 목적으로 합니다.

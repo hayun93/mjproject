@@ -16,6 +16,7 @@ public class MemberInfoAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
+		
 		request.setCharacterEncoding("UTF-8");
 		ActionForward forward = null;
 		HttpSession session = request.getSession();
@@ -24,7 +25,7 @@ public class MemberInfoAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('관리자로 로그인하세요.')");
+			out.println("alert('관리자로 로그인 하세요')");
 			out.println("location.href='loginForm.mem'");
 			out.println("</script>");
 		}else {
@@ -32,11 +33,14 @@ public class MemberInfoAction implements Action {
 
 			MemberInfoSVC memberInfoSVC = new MemberInfoSVC();
 			Member member = memberInfoSVC.getMember(user_id);
+			
 			request.setAttribute("member", member);
+			
 			forward = new ActionForward();
 			forward.setPath("memberListInfo.jsp?id="+user_id);
 		}
 		
 		return forward;
 	}
+
 }

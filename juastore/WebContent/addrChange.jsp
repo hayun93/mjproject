@@ -57,7 +57,7 @@
 <title>주소변경-JuaStore</title>
 </head>
 <body>
-<form action="addrChange.mem?id=${param.id }" name="addrChange">
+<form action="addrChange.mem" name="addrChange">
 <table>
 	 <tr>
 		<th>주소</th>
@@ -66,7 +66,6 @@
 				<input type="text" name="addr1" id="addr1" placeholder="주소" size="40" readonly><br>
 				<input type="text" name="addr2" id="addr2" placeholder="상세주소" size="25">
 				<input type="text" name="exaddr" id="exaddr" placeholder="참고항목" size="10" readonly>
-				<input type="hidden" name="id" id="id" value="${param.id }">
 			</td>
 	 </tr>
 	 <tr>

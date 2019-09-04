@@ -59,8 +59,8 @@ location.href="loginForm.jsp";
 		<table id="modify">
 			<tr>
 				<th id="title">아이디</th>
-				<td id="content">${sessionScope.id }
-				<input type="hidden" value="${sessionScope.id }" id="id" name="id"></td>
+				<td id="content"><%=session.getAttribute("id") %>
+				<input type="hidden" value="<%=session.getAttribute("id") %>" id="id" name="id"></td>
 			</tr>
 			<tr>
 				<th id="title">비밀번호 변경</th>
@@ -88,7 +88,7 @@ location.href="loginForm.jsp";
 				<td id="content_zip">
 				(우편번호)<input type="text" value="${member.zip_code }" readonly size="5" id="zip_code" name="zip_code"><br>
 				(주소)<input type="text" value="${member.address }" readonly size="50" id="address" name="address"><br>
-				<a href="addrChange.jsp?id=${sessionScope.id }"><input type="button" value="주소 변경"></a>
+				<a href="addrChange.jsp"><input type="button" value="주소 변경"></a>
 				</td>
 			</tr>
 		</table>

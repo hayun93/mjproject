@@ -85,7 +85,7 @@ location.href="loginForm.jsp";
 				<td class="content_zip">
 				(우편번호)<input type="text" value="${member.zip_code }" readonly size="5" id="zip_code" name="zip_code"><br>
 				(주소)<input type="text" value="${member.address }" readonly size="50" id="address" name="address"><br>
-				<a href="addrChange.jsp?id=${member.id }"><input type="button" value="주소 변경"></a>
+				<a href="addrChange.jsp"><input type="button" value="주소 변경"></a>
 				</td>
 			</tr>
 			<tr>

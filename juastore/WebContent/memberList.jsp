@@ -80,21 +80,17 @@
 		<h1>회원 관리</h1>
 			<div class="Alignment">
 				<select id="search" name="search">
-					<option value="id">ID순</option>
-					<option value="join_date">가입일순</option>
-					<option value="accumpay desc">구매금액순</option>
+					<option value="idlist">ID순</option>
+					<option value="joinlist">가입일순</option>
+					<option value="paylist">구매금액순</option>
 				</select>
-				<input type="submit" value="정렬">
+				<input type="submit" value="정렬" name="memberlist">
 			</div>
 </form>
-
-<form action="findMember.mem" name="findId">
 			<div class="searchBox">
-				<input type="text" id="findId" name="findId"> 
-				<input type="submit" value="검색">
+				<input type="text" id="findId" name="findId"> <input
+					type="button" value="검색">
 			</div>
-</form>
-			
 		</div>
 		<br><br>
 	
@@ -110,9 +106,8 @@
 					<td>조회</td>
 				</tr>
 			</thead>
-
 			<c:forEach var="list" items="${memlist }">
-<form action="memInfo.mem" name="memInfo">	
+			<form action="memInfo.mem" name="memInfo">	
 			<tr>
 				<td>${list.id }</td>
 				<td>${list.join_date }</td>
@@ -120,7 +115,7 @@
 				<td><input type="hidden" value="${list.id }" name="user_id" id="user_id"></td>
 				<td><input type="submit" value="조회"></td>
 			</tr>
-</form>	
+			</form>	
 			</c:forEach>
 			</c:when>
 			<c:otherwise>

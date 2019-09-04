@@ -22,11 +22,10 @@ public class AddrChangeAction implements Action {
 		HttpSession session = request.getSession();
 		String id =(String)session.getAttribute("id");
 		
-		System.out.println(id +"  리퀘스트값:"+request.getParameter("id"));
 		if(request.getParameter("zip_code")!=null && request.getParameter("addr1") != null) {
 			response.setContentType("text/html;charset=UTF-8");
 			Member member = new Member();
-			member.setId(request.getParameter("id"));
+			member.setId(id);
 			member.setZip_code(Integer.parseInt(request.getParameter("zip_code")));
 			member.setAddress(request.getParameter("addr1")+request.getParameter("addr2")+request.getParameter("exaddr"));
 			AddrChangeService addrChangeSvc = new AddrChangeService();
@@ -40,21 +39,15 @@ public class AddrChangeAction implements Action {
 				out.println("history.back()");
 				out.println("</script>");
 			}else {
-				if(session.getAttribute("id").equals("admin")) {
-					response.setContentType("text/html;charset=UTF-8");
-					PrintWriter out = response.getWriter();
-					out.println("<script>");
-					out.println("alert('주소변경이 완료되었습니다.')");
-					out.println("location.href='memberList.mem'");
-					out.println("</script>");
-				}else {
-					response.setContentType("text/html;charset=UTF-8");
-					PrintWriter out = response.getWriter();
-					out.println("<script>");
-					out.println("alert('주소변경이 완료되었습니다.')");
-					out.println("location.href='modify.mem'");
-					out.println("</script>");
+				response.setContentType("text/html;charset=UTF-8");
+				PrintWriter out = response.getWriter();
+				out.println("<script>");
+				out.println("alert('주소변경이 완료되었습니다.')");
+				out.println("location.href='modify.mem'");
+				if(session.getAttribute("id")=="admin") {
+					out.println("location.href='memberList.jsp'");
 				}
+				out.println("</script>");
 			}
 		}else {
 			response.setContentType("text/html;charset=UTF-8");
