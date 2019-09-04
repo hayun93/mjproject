@@ -98,6 +98,13 @@ public class MemberController extends HttpServlet {
     		}catch(Exception e){
     			e.printStackTrace();
     		}
+    	}else if(command.equals("/memberInfo.mem")) {
+    		action = new MemberInfoAction();
+    		try {
+    			forward=action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	}else if(command.equals("/modify.mem")) {
     		action = new MemberModFormAction();
     		try {
