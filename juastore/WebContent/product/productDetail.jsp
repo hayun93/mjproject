@@ -43,7 +43,7 @@ table, tr, th, td{
 		</tr>
 	</table>
 	<a href="/juastore/inventoryInOutForm.pro?product_code=${product.product_code }">입/출고</a>
-	<a href="">상품정보 수정</a>
+	<a href="/juastore/productModForm.pro?product_code=${product.product_code }">상품정보 수정</a>
 	<a href="">상품 삭제</a>
 	<br>
 	<br>

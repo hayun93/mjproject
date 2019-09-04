@@ -8,6 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script>
+	function back(){
+		history.back();
+	}
+</script>
 <body>
 	<form action="/juastore/productMod.pro" method="post" enctype="multipart/form-data">
 		<table>
@@ -48,7 +53,7 @@
 			</tr>
 		</table>
 		<input type="submit" value="수정">
-		<input type="button" onclick="backList()" value="상품목록">
+		<input type="button" onclick="back()" value="돌아가기">
 	</form>
 	<jsp:include page="/side.jsp" />
 	<jsp:include page="/bottom.jsp" />

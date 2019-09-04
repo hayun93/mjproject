@@ -14,8 +14,8 @@ table, th, td{
 </style>
 </head>
 <script>
-	function backList(){
-		location.href="/juastore/productList.pro";
+	function back(){
+		history.back();
 	}
 </script>
 <body>
@@ -60,7 +60,7 @@ table, th, td{
 			</tr>
 		</table>
 		<input type="submit" value="등록">
-		<input type="button" onclick="backList()" value="상품목록">
+		<input type="button" onclick="back()" value="돌아가기">
 	</form>
 	<jsp:include page="/side.jsp" />
 	<jsp:include page="/bottom.jsp" />
