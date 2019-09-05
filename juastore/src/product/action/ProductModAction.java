@@ -13,13 +13,13 @@ import action.Action;
 import product.svc.ProductAddSvc;
 import vo.ActionForward;
 
-public class ProductAddAction implements Action {
+public class ProductModAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		HttpSession session = request.getSession();
 		ActionForward forward=null;
+		HttpSession session = request.getSession();
 		String etc=null;
 		if(session.getAttribute("id")==null||!session.getAttribute("id").equals("admin")) {
 			response.setContentType("text/html;charset=utf-8");
@@ -36,19 +36,17 @@ public class ProductAddAction implements Action {
 		realFolder=request.getServletContext().getRealPath(saveFolder);
 		
 		MultipartRequest multi = new MultipartRequest(request,realFolder,fileSize,"utf-8",new DefaultFileRenamePolicy());
+		
 		if(multi.getParameter("product_name")==null||multi.getParameter("product_num")==null||
 				multi.getParameter("product_price")==null||multi.getParameter("size")==null||
-				multi.getParameter("color")==null||multi.getOriginalFileName((String)multi.getFileNames().nextElement())==null||multi.getParameter("inventory")==null) {
+				multi.getParameter("color")==null) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('하나도 빠트림 없이 입력해주세요.')");
+			out.println("alert('빠트림 없이 입력해주세요.')");
 			out.println("history.back()");
 			out.println("</script>");
 		}else {
-			
-			
-			
 			String product_code=multi.getParameter("type")+multi.getParameter("product_num")+
 					multi.getParameter("size")+multi.getParameter("color");
 			String product_name=multi.getParameter("product_name");

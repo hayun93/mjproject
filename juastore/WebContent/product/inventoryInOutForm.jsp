@@ -10,7 +10,7 @@
 </head>
 <script>
 	function backDetail(){
-		location.href="/juastore/productDetail.pro?product_code=${param.product_code}";
+		history.back();
 	}
 </script>
 <body>

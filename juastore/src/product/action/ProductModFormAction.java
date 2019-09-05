@@ -32,9 +32,10 @@ public class ProductModFormAction implements Action {
 			ProductInventoryView product = productDetailSvc.getProduct(product_code);
 			
 			String type=product_code.substring(0, 2);
-			String num=product_code.substring(2,3);
-			String size=product_code.substring(5,2);
-			String color=product_code.substring(6);
+			String num=product_code.substring(2,5);
+			System.out.println(num + "\t" + product_code);
+			String size=product_code.substring(5,7);
+			String color=product_code.substring(7);
 			
 			request.setAttribute("type", type);
 			request.setAttribute("num", num);

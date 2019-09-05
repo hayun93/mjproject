@@ -15,7 +15,7 @@ table, th, td{
 </head>
 <script>
 	function backList(){
-		location.href="/juastore/productList.pro";
+		history.back();
 	}
 </script>
 <body>

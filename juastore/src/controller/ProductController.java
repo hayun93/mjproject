@@ -16,6 +16,8 @@ import product.action.ProductAddAction;
 import product.action.ProductAddFormAction;
 import product.action.ProductDetailAction;
 import product.action.ProductListAction;
+import product.action.ProductModAction;
+import product.action.ProductModFormAction;
 import vo.ActionForward;
 
 /**
@@ -102,6 +104,20 @@ public class ProductController extends HttpServlet {
     		action = new InventoryInOutAction();
     		try {
     			forward=action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}else if(command.equals("/productModForm.pro")) {
+    		action = new ProductModFormAction();
+    		try {
+    			forward=action.execute(request, response);
+    		}catch(Exception e) {
+    			e.printStackTrace();
+    		}
+    	}else if(command.equals("/productMod.pro")) {
+    		action = new ProductModAction();
+    		try {
+    			forward = action.execute(request, response);
     		}catch(Exception e) {
     			e.printStackTrace();
     		}
